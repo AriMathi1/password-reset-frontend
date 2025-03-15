@@ -19,7 +19,7 @@ const ResetPassword = () => {
     // Verify token validity when component mounts
     const verifyToken = async () => {
       try {
-        const response = await axios.get(`http://localhost:3002/reset-password/${token}`);
+        const response = await axios.get(`https://password-reset-server-w9nk.onrender.com/reset-password/${token}`);
         setTokenValid(response.data.valid);
       } catch (error) {
         setError('This password reset link is invalid or has expired.');
@@ -57,7 +57,7 @@ const ResetPassword = () => {
     setSubmitLoading(true);
 
     try {
-      await axios.post(`http://localhost:3002/reset-password/${token}`, {
+      await axios.post(`https://password-reset-server-w9nk.onrender.com/reset-password/${token}`, {
         password: formData.password,
         confirmPassword: formData.confirmPassword,
       });
